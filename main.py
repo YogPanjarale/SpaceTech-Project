@@ -26,11 +26,14 @@ def scrape():
             if i==1 and len(td.find_all('a'))>0:
                 a:soup=td.find_all("a")[0]
                 temp_list.append(str(a.contents[0]))
-            if i==4:
+            if i==3:
+                if "span" in str(td.contents[0]).strip('\n'):
+                    temp_list.append(str(td.contents[1]).strip('\n'))
+                else:
+                    temp_list.append(str(td.contents[0]).strip('\n'))
+            if i==5:
                 temp_list.append(str(td.contents[0]).strip('\n'))
             if i==6:
-                temp_list.append(str(td.contents[0]).strip('\n'))
-            if i==7:
                 temp_list.append(str(td.contents[0]).strip('\n'))
             i+=1
             # print(td.contents[0])
