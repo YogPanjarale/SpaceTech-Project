@@ -19,9 +19,9 @@ def scrape():
     table_content :soup = soup.select('#mw-content-text > div.mw-parser-output > table:nth-child(14) > tbody')[0]
     tr:soup
     # print(soup)
-    with open('soup.html','w',encoding='utf-8') as f:
-        f.write(str(table_content))
-        f.close()
+    # with open('soup.html','w',encoding='utf-8') as f:
+    #     f.write(str(table_content))
+    #     f.close()
     for tr in table_content.find_all('tr')[1:]:
         td:soup
         # print(tr)
@@ -39,7 +39,7 @@ def scrape():
                 if len(c)>0:
                     temp_list.append(str(c[0]))
                 else:
-                    temp_list.append('NAN')
+                    temp_list.append('-')
             #mass
             if i==8:
                 c= td.contents
@@ -53,7 +53,7 @@ def scrape():
                 if len(c)>0:
                     temp_list.append(str(c[0]))
                 else:
-                    temp_list.append('NAN')
+                    temp_list.append('-')
             i+=1
         stars_list.append(temp_list)
         
@@ -61,7 +61,7 @@ def scrape():
 if __name__ =="__main__":
     scrape()
     # print(stars_list)
-    with open("drawf_stars.csv","w",encoding="utf-8",newline='') as f:
+    with open("dwarfs_stars.csv","w",encoding="utf-8",newline='') as f:
             w = csv.writer(f)
             w.writerow(headers)
             w.writerows(stars_list)
