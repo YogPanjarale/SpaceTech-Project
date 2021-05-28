@@ -51,7 +51,7 @@ for j in p_d2:
     p_d.append(j)
 with open("total_stars.csv",'w',encoding='utf8',newline='') as f:
     csvwriter = csv.writer(f)
-    csvwriter.writerow(h1)   
+    csvwriter.writerow(h)   
     csvwriter.writerows(p_d)
     
 df = pd.read_csv('total_stars.csv')
